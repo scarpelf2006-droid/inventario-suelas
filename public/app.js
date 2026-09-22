@@ -42,7 +42,7 @@ async function renderSoles() {
   $('#q').oninput = draw; draw();
 }
 const soleCard = s => `<article class="card">
-  ${s.photo ? `<img src="/uploads/${s.photo}" alt="${esc(s.name)}">` : '<div class="noimg">Sin foto</div>'}
+  ${s.photo ? `<img src="${s.photo}" alt="${esc(s.name)}">` : '<div class="noimg">Sin foto</div>'}
   <h3>${esc(s.name)}</h3>
   <p class="stock"><b>${s.stock}</b> pares en total</p>
   <div class="sizes">${s.sizes.map(x => `<span class="chip ${x.stock ? '' : 'zero'}">Talla <b>${esc(x.size)}</b>: ${x.stock}</span>`).join('')}</div>
@@ -57,7 +57,7 @@ function soleForm(id) {
   photoData = null;
   openModal(`<h2>${id ? 'Editar suela' : 'Nueva suela'}</h2>
     <div class="photo">
-      <img id="prev" alt="Foto de la suela" ${s.photo ? `src="/uploads/${s.photo}"` : 'hidden'}>
+      <img id="prev" alt="Foto de la suela" ${s.photo ? `src="${s.photo}"` : 'hidden'}>
       <label class="btn primary">Tomar foto<input type="file" accept="image/*" capture="environment" hidden onchange="pickPhoto(this)"></label>
       <label class="btn">Elegir de la galería<input type="file" accept="image/*" hidden onchange="pickPhoto(this)"></label>
     </div>
